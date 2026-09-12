@@ -1,1 +1,150 @@
-/* Add your CSS here */
+/* Clear Sans is used throughout the page. */
+@font-face {
+	font-family: "Clear Sans";
+	src: local("Clear Sans"), local("ClearSans");
+}
+
+:root {
+	--dark-gray: #3c3c3c;
+	--light-gray: #5d5d5d;
+	--super-light-gray: #d7d7d7;
+	--intel-blue: #0068b5;
+	--intel-dark-blue: #00285a;
+	--intel-light-blue: #00aeef;
+	--pure-white: #ffffff;
+	--pure-black: #000000;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	color: var(--pure-black);
+	background-color: var(--pure-white);
+	font-family: "Clear Sans", sans-serif;
+}
+
+header {
+	height: 10.5vh;
+	background-color: var(--pure-white);
+}
+
+.header-top {
+	height: 66.6667%;
+	border-bottom: 1px solid var(--super-light-gray);
+	padding-left: 0.5vw;
+}
+
+.header-top img {
+	display: block;
+	width: auto;
+	height: 100%;
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
+.header-bottom {
+	height: 33.3333%;
+	padding-left: 0.5vw;
+}
+
+.header-bottom h1 {
+	margin: 0;
+	color: var(--intel-dark-blue);
+	font-size: clamp(1rem, 2.5vw, 2rem);
+	line-height: 1;
+}
+
+.timeline-stage {
+	height: 65.5vh;
+	background-color: var(--light-gray);
+}
+
+.timeline-introduction {
+	height: 11.5vh;
+	padding: 1vh 2vw;
+	text-align: center;
+}
+
+.timeline-introduction h2,
+.timeline-introduction p {
+	margin: 0;
+}
+
+.timeline-introduction h2 {
+	font-size: clamp(1rem, 2.2vw, 1.75rem);
+}
+
+.timeline-introduction p {
+	margin-top: 0.75vh;
+	font-size: clamp(0.7rem, 1.3vw, 1rem);
+}
+
+.year-navigation {
+	display: flex;
+	height: 12.5vh;
+	overflow-x: auto;
+	border-top: 1px solid var(--super-light-gray);
+	background-color: var(--pure-white);
+}
+
+.year-navigation a {
+	display: flex;
+	min-width: 11.1111%;
+	align-items: center;
+	justify-content: center;
+	color: var(--intel-blue);
+	font-size: clamp(0.85rem, 1.7vw, 1.25rem);
+	text-decoration: none;
+}
+
+.year-navigation a:hover,
+.year-navigation a:focus {
+	color: var(--intel-light-blue);
+	background-color: var(--super-light-gray);
+}
+
+.timeline-information {
+	padding: 3rem 5vw;
+}
+
+.timeline-information > div {
+	margin-bottom: 3rem;
+	border-left: 4px solid var(--intel-blue);
+	padding-left: 1.5rem;
+}
+
+.timeline-information h2,
+.timeline-information h3,
+.timeline-information p {
+	margin-top: 0;
+}
+
+.timeline-information h2 {
+	color: var(--intel-dark-blue);
+}
+
+.timeline-information h3 {
+	color: var(--intel-blue);
+}
+
+@media (max-width: 600px) {
+	.header-top {
+		padding-left: 0;
+	}
+
+	.header-bottom {
+		padding-left: 3vw;
+	}
+
+	.year-navigation a {
+		min-width: 28vw;
+	}
+}
