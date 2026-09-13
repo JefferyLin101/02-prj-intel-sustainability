@@ -119,7 +119,7 @@
     const timelineTrack = document.querySelector(".timeline-cards-track");
     const previousPreview = document.querySelector(".timeline-preview-previous");
     const nextPreview = document.querySelector(".timeline-preview-next");
-    let mobileYearNavigationLocked = false;
+    let pendingMobileYear = null;
     const timelineSections = timelineLinks
       .map((link) => document.querySelector(link.getAttribute("href")))
       .filter(Boolean);
@@ -205,15 +205,12 @@
         if (window.matchMedia("(min-width: 56.25rem)").matches) {
           showTimelineCard(cardIndex);
         } else {
-          mobileYearNavigationLocked = true;
+          pendingMobileYear = section.id;
           setActiveYear(section.id);
           window.scrollTo({
             top: section.offsetTop - timelineBar.offsetHeight,
             behavior: "smooth"
           });
-          window.setTimeout(() => {
-            mobileYearNavigationLocked = false;
-          }, 900);
         }
       });
     });
@@ -229,7 +226,14 @@
 
     const timelineObserver = new IntersectionObserver(
       (entries) => {
-        if (mobileYearNavigationLocked) {
+        if (pendingMobileYear) {
+          const targetEntry = entries.find(
+            (entry) => entry.target.id === pendingMobileYear
+          );
+          if (targetEntry && targetEntry.isIntersecting) {
+            setActiveYear(pendingMobileYear);
+            pendingMobileYear = null;
+          }
           return;
         }
         const visibleSection = entries
