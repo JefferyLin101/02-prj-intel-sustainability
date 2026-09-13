@@ -207,8 +207,9 @@
         } else {
           pendingMobileYear = section.id;
           setActiveYear(section.id);
+          const sectionTop = section.getBoundingClientRect().top + window.scrollY;
           window.scrollTo({
-            top: section.offsetTop - timelineBar.offsetHeight,
+            top: sectionTop - timelineBar.offsetHeight,
             behavior: "smooth"
           });
         }
