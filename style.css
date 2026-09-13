@@ -267,6 +267,7 @@ header {
 	flex: 0 0 min(44rem, 68vw);
 	min-height: 32rem;
 	padding: 2rem 8vw 3rem;
+	scroll-margin-top: 4.5rem;
 	scroll-snap-align: center;
 	text-align: center;
 	opacity: 0.3;
